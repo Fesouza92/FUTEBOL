@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz de Futebol | Escolha seu Tema</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- TELA 1: MENU DE TEMAS -->
+    <div id="menu-screen">
+      <header>
+        <h1>⚽ Arena Quiz Futebol</h1>
+      </header>
+      <p class="subtitle">Escolha uma categoria abaixo para começar:</p>
+
+      <div class="theme-grid">
+        <button class="theme-card" onclick="startQuiz('copa')">
+          <span class="theme-icon">🏆</span>
+          <span class="theme-title">Copa do Mundo</span>
+          <span class="theme-desc">Finais, artilheiros, sedes e história.</span>
+        </button>
+
+        <button class="theme-card" onclick="startQuiz('brasil')">
+          <span class="theme-icon">🇧🇷</span>
+          <span class="theme-title">Futebol Brasileiro</span>
+          <span class="theme-desc">Brasileirão, Copa do Brasil e clubes.</span>
+        </button>
+
+        <button class="theme-card" onclick="startQuiz('europa')">
+          <span class="theme-icon">🇪🇺</span>
+          <span class="theme-title">Futebol Europeu</span>
+          <span class="theme-desc">Champions League, ligas e craques.</span>
+        </button>
+
+        <button class="theme-card" onclick="startQuiz('geral')">
+          <span class="theme-icon">🔥</span>
+          <span class="theme-title">Desafio Geral</span>
+          <span class="theme-desc">Mistura aleatória de todos os temas.</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- TELA 2: PERGUNTAS -->
+    <div id="quiz-screen" style="display: none;">
+      <header>
+        <button class="btn-back" onclick="goToMenu()">⬅ Menu</button>
+        <span class="badge" id="progress">1 / 5</span>
+      </header>
+
+      <div class="topic-label" id="topic-label">Tema</div>
+      <div class="question-text" id="question">Carregando...</div>
+
+      <div class="options" id="options"></div>
+
+      <div class="hint-box" id="hint-box"></div>
+      <div class="feedback" id="feedback"></div>
+
+      <div class="controls">
+        <button class="btn-hint" id="hint-btn" onclick="showHint()">💡 Dica</button>
+        <button class="btn-primary" id="next-btn" style="display: none; margin-left: auto;" onclick="nextQuestion()">Próxima ➔</button>
+      </div>
+    </div>
+
+    <!-- TELA 3: RESULTADO -->
+    <div class="result-screen" id="result-screen">
+      <h1>🏅 Fim de Jogo!</h1>
+      <div class="result-score" id="final-score">0 / 5</div>
+      <p class="result-msg" id="result-msg"></p>
+      <div class="result-actions">
+        <button class="btn-primary" onclick="restartCurrentTheme()">Jogar Tema Novamente</button>
+        <button class="btn-secondary" onclick="goToMenu()">Escolher Outro Tema</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
